@@ -1,0 +1,8 @@
+stage('Upload to S3') {
+    steps {
+        script {
+            // Provide the full path to the aws executable
+            sh "/path/to/aws s3 sync ${LOCAL_DIRECTORY} s3://${S3_BUCKET_NAME}/"
+        }
+    }
+}

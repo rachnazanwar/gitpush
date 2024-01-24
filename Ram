@@ -1,0 +1,21 @@
+import boto3
+
+def lambda_handler(event, context):
+    # Specify your S3 bucket name
+    bucket_name = 'decembers3'
+
+    # Create an S3 client
+    s3 = boto3.client('s3')
+
+    # List objects in the bucket
+    objects = s3.list_objects_v2(Bucket=bucket_name)['Contents']
+
+    # Sort objects by last modified time
+    sorted_objects = sorted(objects, key=lambda x: x['LastModified'], reverse=True)
+
+    # Keep only the latest 5 files
+    files_to_keep = sorted_objects[:5]
+
+    # Delete files that are not in the latest 5
+    for obj in sorted_objects[5:]:
+        s3.delete_object(Buc

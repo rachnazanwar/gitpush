@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
-RUN apt-get update && apt-get install -y \ && rm -rf /var/lib/apt/lists/
+FROM centos:8
+RUN yum update -y && yum install -y httpd
 WORKDIR /app
 COPY . /app
 EXPOSE 80
-
+CMD ["httpd", "-D", "FOREGROUND"]
 

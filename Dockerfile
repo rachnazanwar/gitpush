@@ -1,6 +1,7 @@
-FROM ubuntu:latest
-RUN apt update
+FROM ubuntu:20.04
+RUN apt-get update
 WORKDIR /app
 COPY . /app
 EXPOSE 80
-ENV NAME World
+
+

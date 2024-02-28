@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-RUN apt-get update
+RUN sudo apt-get update
 WORKDIR /app
 COPY . /app
 EXPOSE 80

@@ -1,5 +1,5 @@
-FROM centos:8
-RUN yum update -y && yum install -y httpd
+FROM quay.io/centos/centos:stream8
+RUN dnf update -y && dnf install -y httpd
 WORKDIR /app
 COPY . /app
 EXPOSE 80
